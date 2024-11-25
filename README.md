@@ -1,17 +1,4 @@
----
-title: "OPTIMIZACIÓN EN LA LÍNEA DE ENSAMBLAJE"
-author: "Susana Aguirre, Marlon Atehortúa, Annie Sequeda"
-lang: es
-theme: Sketchy
-format: html
-editor: visual
----
-
-::: {style="text-align: justify;"}
-```{r include = FALSE}
-knitr:: opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
-```
-
+# OPTIMIZACIÓN EN LA LÍNEA DE ENSAMBLAJE
 ## INTRODUCCIÓN
 
 Uno de los trabajos de la ingeniería industrial es el estudio y análisis de las líneas de producción, con el objetivo de mejorar los procesos, reduciendo demoras, actividades innecesarias y gastos. De esta manera, se fomenta la idea del mejoramiento continuo, lo que trae consigo efectos positivos, aumentando las ganancias y, a su vez, la creación de un mejor clima organizacional.
