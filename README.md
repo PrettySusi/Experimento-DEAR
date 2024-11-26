@@ -139,6 +139,7 @@ require(rstatix)
 require(ggplot2)
 require(agricolae)
 require(pwr)
+require(plotly)
 
 ```
 
@@ -420,6 +421,40 @@ plot(TukeyHSD(modelo, "ru"))
 
 Aunque gráficamente es confuso, también puede concluirse lo anteriormente mencionado. Y en resumen, el operario registra un mejor tiempo cuando sigue las imagenes instructivas, las piezas están pre ensambladas y hay un ruido moderado.
 
+#### Gráfico de superficie
+
+Por último el siguiente gráfico se realiza para visualizar la variación de la combinación de los efectos que tuvieron mayor significancia sobre el tiempo de ensamblado. En base al modelo de regresión, se tomaron el intercepto y cada uno de lo efectos para darle estructura a este con las variables de interés, las cuales son tipo de instrucciones y ruido.
+
+```{r, include = FALSE}
+u<-'https://raw.githubusercontent.com/PrettySusi/Experimento-DEAR/refs/heads/main/gra.csv'
+g <- read.csv(u, sep = ";", header = TRUE)
+
+attach(g)
+
+mo <-  lm(t ~ ins*ord*ru, data=g)
+summary(mo)
+
+# 62.4716 - 0.8741a - 2.1333b + 1.8296c + 2.8667ab + 1.5056 ac + 0.9750bc -1.1375abc
+
+x     <-  seq(-1, 1, 0.1) 
+y     <-  seq(-1, 1, 0.1) 
+model <-  function (x, y){62.4716 - 0.8741*x  + 1.8296*y  + 1.5056*x*y }
+z     <-  outer(x, y ,model)
+
+# gr?fico de contornos : contour
+contour(x,y,z,nlevels=30)
+
+```
+
+```{r}
+library(plotly)
+fig <- plot_ly(x=x, y=y, z=z)
+fig <- fig %>% add_surface()
+fig
+```
+
+## ELECCIÓN DEL TAMAÑO DE LA MUESTRA
+
 Tener una alta potencia estadística aumenta la probabilidad de que lo previamente mencionado a lo largo de todo el trabajo sea verídico y aplicable, reduciendo la probabilidad de cometer un error tipo 2. Además es más probable que los efectos observados sean aplicables en la realidad y le den un significado al experimento.
 
 ```{r, include = FALSE}
@@ -474,9 +509,7 @@ Las instrucciones por imagenes resultan ser las más efectivas, mientras las ins
 
 El análisis de interacciones sugiere que los efectos combinados de los factores pueden variar, con el ruido interactuando significativamente con los otros factores. Por ejemplo, el ruido alto amplifica los efectos negativos de las instrucciones textuales y de las piezas desordenadas. Este estudio confirma que el tiempo de ensamblaje puede optimizarse mediante ajustes en las condiciones de trabajo. Implementar instrucciones visuales, preensamblar piezas y controlar el ruido ambiental a niveles moderados son medidas recomendadas para mejorar la productividad en una línea de ensamblaje.
 
-
 # Referencias
 
-[@gplots] [@graphics] [@car] [@nortest] [@tseries] [@lmtest] [@rstatix] [@ggplot2] [@agricolae] [@pwr]
-:::
+[@gplots] [@graphics] [@car] [@nortest] [@tseries] [@lmtest] [@rstatix] [@ggplot2] [@agricolae] [@pwr] [@ploty]
 
