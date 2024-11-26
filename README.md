@@ -441,7 +441,6 @@ y     <-  seq(-1, 1, 0.1)
 model <-  function (x, y){62.4716 - 0.8741*x  + 1.8296*y  + 1.5056*x*y }
 z     <-  outer(x, y ,model)
 
-# gr?fico de contornos : contour
 contour(x,y,z,nlevels=30)
 
 ```
