@@ -20,9 +20,9 @@ Determinar el efecto individual y combinado de las variables tipo de instrucció
 
 -   Identificar los factores más críticos para optimizar el proceso de ensamblaje.
 
-Evaluar la eficiencia de las instrucciones visuales en comparación con las instrucciones textuales y la ausencia de instrucciones en la reducción del tiempo de ensamblaje:
+Evaluar la eficiencia de las instrucciones visuales en comparación con las instrucciones textuales con respecto a la reducción del tiempo de ensamblaje:
 
--   Determinar cuál tipo de instrucción (visual, textual o ninguna) es más eficiente para guiar al ensamblador.
+-   Determinar cuál tipo de instrucción (visual o textual) es más eficiente para guiar al ensamblador.
 
 -   Minimizar el tiempo de ensamblaje mediante el uso de instrucciones adecuadas.
 
